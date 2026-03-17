@@ -10,6 +10,10 @@ module "github_runners" {
   github_repo     = var.github_repo
 
   runner_workload_roles = var.runner_workload_roles
+
+  github_app_id_secret_name             = var.github_app_id_secret_name
+  github_app_installation_id_secret_name = var.github_app_installation_id_secret_name
+  github_app_private_key_secret_name    = var.github_app_private_key_secret_name
 }
 
 output "acr_login_server" {
