@@ -3,6 +3,26 @@ import {
   id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt"
 }
 
+import {
+  to = module.github_runners.module.runners.azurerm_container_registry.acr
+  id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt/providers/Microsoft.ContainerRegistry/registries/crrunnerpocbvt"
+}
+
+import {
+  to = module.github_runners.module.runners.azurerm_key_vault.kv
+  id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt/providers/Microsoft.KeyVault/vaults/kv-runner-poc-bvt"
+}
+
+import {
+  to = module.github_runners.module.runners.azurerm_servicebus_namespace.scaler
+  id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt/providers/Microsoft.ServiceBus/namespaces/sbns-runner-poc-bvt"
+}
+
+import {
+  to = module.github_runners.module.runners.azurerm_storage_account.functions
+  id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt/providers/Microsoft.Storage/storageAccounts/stfnrunnerpocbvt"
+}
+
 module "github_runners" {
   source = "github.com/patrickthor/github-runners?ref=v3.0.0"
 
