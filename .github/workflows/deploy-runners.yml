@@ -178,8 +178,12 @@ jobs:
 
       - name: Import runner image into ACR
         run: |
-          ACR_SERVER=$(terraform output -raw acr_login_server)
+          echo "All outputs:"
+          terraform output
+          ACR_SERVER=$(terraform output -raw acr_login_server 2>/dev/null || true)
+          echo "ACR_SERVER: '$ACR_SERVER'"
           ACR_NAME=$(echo "$ACR_SERVER" | cut -d. -f1)
+          echo "ACR_NAME: '$ACR_NAME'"
           az acr import \
             --name "$ACR_NAME" \
             --source ghcr.io/myoung34/docker-github-actions-runner:latest \
