@@ -1,7 +1,3 @@
-import {
-  to = module.github_runners.module.runners.azurerm_resource_group.this[0]
-  id = "/subscriptions/${var.subscription_id}/resourceGroups/rg-runner-poc-bvt"
-}
 
 
 module "github_runners" {
